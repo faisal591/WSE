@@ -8,23 +8,21 @@
   <meta content="" name="description">
   <meta content="" name="keywords">
 
-  <!-- Favicons -->
+ 
   <link href="assets/img/favicon.png" rel="icon">
   <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
 
-  <!-- Fonts -->
+  
   <link href="https://fonts.googleapis.com" rel="preconnect">
   <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&display=swap" rel="stylesheet">
 
-  <!-- Vendor CSS Files -->
   <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
   <link href="assets/vendor/aos/aos.css" rel="stylesheet">
   <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
   <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
 
-  <!-- Main CSS File -->
   <link href="assets/css/main.css" rel="stylesheet">
 
   <style>
@@ -51,7 +49,7 @@
       pointer-events: none;
     }
 
-    /* النمط للنافذة المنبثقة */
+   
     .modal {
       display: none;
       position: fixed;
@@ -85,7 +83,7 @@
       cursor: pointer;
     }
 
-    /* النمط للنافذة التعليمية */
+   
     .tour-step {
       display: none;
       position: fixed;
@@ -107,7 +105,7 @@
       margin-top: 10px;
     }
 
-    /* تأثير البلور */
+   
     .blurred {
       filter: blur(5px);
     }
@@ -154,16 +152,16 @@
     </header>
 
     <main class="main">
-      <!-- Page Title -->
+   
       <div class="page-title" data-aos="fade">
         <div class="container">
           <h1> Placement Test Stages</h1>
           <img src="BR.png" alt="Wall Street English Logo" width="700">
           <nav class="breadcrumbs"></nav>
         </div>
-      </div><!-- End Page Title -->
+      </div>
 
-      <!-- Service Details Section -->
+
       <section id="service-details" class="service-details section">
         <div class="container">
           <div class="row gy-4">
@@ -180,7 +178,7 @@
             </div>
           </div>
         </div>
-      </section><!-- /Service Details Section -->
+      </section>
     </main>
 
     <footer id="footer" class="footer">
@@ -197,7 +195,7 @@
     </footer>
   </div>
 
-  <!-- الفيديو في نافذة منبثقة -->
+  
   <div id="myModal" class="modal">
     <div class="modal-content">
       <span class="close">&times;</span>
@@ -208,7 +206,7 @@
     </div>
   </div>
 
-  <!-- النافذة التعليمية مع الفيديوهات -->
+
   <div id="tour-step-3" class="tour-step">
     <h3>جولة تعليمية</h3>
     <video id="tourVideo3" width="100%" controls>
@@ -219,68 +217,67 @@
   </div>
 
   <script>
-    // الحصول على العناصر
     var modal = document.getElementById("myModal");
     var btn = document.getElementById("introLink");
     var span = document.getElementsByClassName("close")[0];
     var video = document.getElementById("introVideo");
     var pageContent = document.getElementById("page-content");
 
-    // عندما يضغط المستخدم على الرابط
+  
     btn.onclick = function() {
       modal.style.display = "block";
     }
 
-    // عندما يضغط المستخدم على (x) لإغلاق النافذة
+    
     span.onclick = function() {
       modal.style.display = "none";
-      video.pause();  // إيقاف الفيديو
-      video.currentTime = 0;  // إعادة تعيين وقت الفيديو إلى البداية
+      video.pause();  
+      video.currentTime = 0;  
     }
 
-    // عندما يضغط المستخدم في أي مكان خارج النافذة، يتم إغلاقها
+    
     window.onclick = function(event) {
       if (event.target == modal) {
         modal.style.display = "none";
-        video.pause();  // إيقاف الفيديو
-        video.currentTime = 0;  // إعادة تعيين وقت الفيديو إلى البداية
+        video.pause(); 
+        video.currentTime = 0;  
       }
     }
 
-    // إخفاء اللوجو بعد مدة زمنية معينة
+    
     document.addEventListener("DOMContentLoaded", function() {
       setTimeout(function() {
         document.getElementById("logo-overlay").classList.add("fade-out");
-        startTour(); // بدء الجولة التعليمية بعد اختفاء الشعار
-      }, 2000); // مدة عرض اللوجو بالميلي ثانية (هنا 2000 ميلي ثانية تساوي 2 ثانية)
+        startTour(); 
+      }, 2000); 
     });
 
-    // بدء الجولة التعليمية
+   
     function startTour() {
       const steps = document.querySelectorAll('.tour-step');
       let currentStep = 0;
       steps.forEach((step, index) => {
         step.querySelector('.next-step')?.addEventListener('click', function () {
-          // إيقاف الفيديو الحالي
+          
           const currentVideo = step.querySelector('video');
           if (currentVideo) {
             currentVideo.pause();
             currentVideo.currentTime = 0;
           }
 
-          // عرض الخطوة التالية
+          
           step.style.display = 'none';
           currentStep++;
           if (currentStep < steps.length) {
             steps[currentStep].style.display = 'block';
           } else {
-            // إزالة تأثير البلور عند انتهاء الجولة التعليمية
+            
             pageContent.classList.remove("blurred");
           }
         });
 
         step.querySelector('.close-tour')?.addEventListener('click', function () {
-          // إيقاف الفيديو الحالي
+         
           const currentVideo = step.querySelector('video');
           if (currentVideo) {
             currentVideo.pause();
@@ -289,14 +286,14 @@
 
           step.style.display = 'none';
           currentStep = 0;
-          // إزالة تأثير البلور عند إغلاق الجولة التعليمية
+       
           pageContent.classList.remove("blurred");
         });
       });
-      // إضافة تأثير البلور
+     
       pageContent.classList.add("blurred");
 
-      // عرض الخطوة الأولى
+      
       steps[currentStep].style.display = 'block';
 
       steps.forEach((step, index) => {
@@ -306,7 +303,7 @@
           if (currentStep < steps.length) {
             steps[currentStep].style.display = 'block';
           } else {
-            // إزالة تأثير البلور عند انتهاء الجولة التعليمية
+            
             pageContent.classList.remove("blurred");
           }
         });
@@ -314,20 +311,20 @@
         step.querySelector('.close-tour')?.addEventListener('click', function () {
           step.style.display = 'none';
           currentStep = 0;
-          // إزالة تأثير البلور عند إغلاق الجولة التعليمية
+         
           pageContent.classList.remove("blurred");
         });
       });
     }
   </script>
 
-  <!-- Scroll Top -->
+ 
   <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
-  <!-- Preloader -->
+  
   <div id="preloader"></div>
 
-  <!-- Vendor JS Files -->
+ 
   <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
   <script src="assets/vendor/php-email-form/validate.js"></script>
   <script src="assets/vendor/aos/aos.js"></script>
@@ -337,7 +334,7 @@
   <script src="assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
   <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
 
-  <!-- Main JS File -->
+  
   <script src="assets/js/main.js"></script>
 
 </body>
